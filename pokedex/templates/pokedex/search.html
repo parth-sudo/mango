@@ -1,0 +1,27 @@
+{% extends "pokedex/base.html" %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+ <div class="container justify-content-between " style="background-color:dark-yellow">
+
+   <form method="post">
+
+{% csrf_token %}
+
+{{ form|crispy }}
+
+       <a href="{% url 'search' %}"><button class="submit btn btn-primary btn-lg"> Check </button>  </a>
+
+       {% if number %}
+
+       <h3 class="text-white"> The Pokemon with dex number {{number}} is {{ names.number }}  </h3>
+
+       {% endif %}
+
+
+</form>
+
+  </div>
+
+{% endblock %}

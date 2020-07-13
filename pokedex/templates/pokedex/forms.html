@@ -1,0 +1,41 @@
+{% extends "pokedex/base.html" %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="border-top pt-3">
+<div class="container justify-content-between" style="background-color:light-green">
+
+  <div class="text-white bg-black-50">
+    <h2 class="text-white bg-black-50"> Here, tell the stats so I can guess the Pokemon. &#128512; </h2>
+  </div>
+
+       <div class="text-white bg-black-50">
+        <h4 style="color:orange;" > Note:</h4>
+ <ul>
+        <li style="color:powderblue;"> For legendary option, type '1' for YES and '0' for NO.</li>
+        <li style="color:powderblue;"> Also, try to keep the values below 201.</li>
+        <li style="color:powderblue;"> The Generation column will only take a number from 1-6. </li>
+       <l1 style="color:powderblue;"> <p> In case your stats match exactly with the stats of a particular Pokemon,
+                                  generation will not have any effect.</p></l1>
+
+ </ul>
+    </div>
+
+<br>
+
+<form method="post">
+
+{% csrf_token %}
+{{ form|crispy }}
+
+    <a href="{% url 'guess' %}"><button class="submit btn btn-primary btn-lg"> Check </button>  </a>
+    <a href="{% url 'home' %}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true"> Back to Home</a>
+
+</form>
+
+
+
+</div>
+</div>
+
+{% endblock %}

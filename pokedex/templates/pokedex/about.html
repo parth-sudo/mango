@@ -1,0 +1,39 @@
+{% extends "pokedex/base.html" %}
+{% load static %}
+{% block content %}
+
+ <div class="container justify-content-between " style="background-color:dark-yellow">
+
+      <h3 style="font-size:50px; color:white;"> <b> About Us. </b>  </h3>
+     <br>
+
+
+      {% for s in studs %}
+
+          <div class="card" style="width: 20rem; float: center;">
+          <img class="card-img-top" src="{% static 'images/' %}{{s.name}}.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 style="color:black; text-alight:center;"> {{s.name}}  </h5>
+          </div>
+        </div>
+
+     <br>
+        <div class="text-white">
+
+            <h2 style="color:powderwhite;"> Bio </h2>
+
+            <p>  {{s.bio}} </p>
+
+            <br>
+
+            </div>
+
+
+           {% endfor %}
+
+
+</div>
+
+
+
+{% endblock %}
