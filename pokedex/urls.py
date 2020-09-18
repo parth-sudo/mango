@@ -9,4 +9,5 @@ urlpatterns = [
     path('regions/', views.regions, name='regions'),
     path('studs/', views.studs, name = 'studs'),
     path('search/', views.search, name='search'),
+
 ]

@@ -44,3 +44,7 @@ class PokeSearch(forms.Form):
 
             Submit('submit', 'Submit', css_class='btn-success'),
         )
+
+class PokeSearchByName(forms.Form):
+
+    pokemon_name = forms.CharField(max_length=20)

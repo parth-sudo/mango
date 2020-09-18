@@ -1,27 +1,47 @@
 {% extends "pokedex/base.html" %}
 {% load static %}
 {% block content %}
-{% load crispy_forms_tags %}
 
- <div class="container justify-content-between " style="background-color:dark-yellow">
 
-   <form method="post">
 
-{% csrf_token %}
+<h1 class="text-white"> Search by name. </h1>
 
-{{ form|crispy }}
+ <h2 class="text-white"> Enter the name of the Pokemon. </h2>
 
-       <a href="{% url 'search' %}"><button class="submit btn btn-primary btn-lg"> Check </button>  </a>
+      <div class="text-white bg-black-50">
+        <h4 style="color:orange;" > Note:</h4>
+ <ul>
+        <li style="color:powderblue;"> Keep the first letter uppercase. eg- Pikachu.</li>
+        <li style="color:powderblue;"> After typing, click anywhere on the
+            page(except the white bar) to see what you have typed. <br>(Because the text
+            is also taken in white color so it becomes invisible).</li>
 
-       {% if number %}
+ </ul>
+    </div>
 
-       <h3 class="text-white"> The Pokemon with dex number {{number}} is {{ names.number }}  </h3>
 
-       {% endif %}
+
+ <form action="{% url 'search' %}" method="post">
+
+  {% csrf_token %}
+
+     <div class="contaier">
+    <h3 class="text-white"> {{form2}} </h3>
+             </div>
+
+
+     <div class="contaier">
+    <h3 class="text-white">   {{dex_number}} </h3>
+             </div>
+
+    <br>
+
+
+    <a href="{% url 'search' %}"><button class="submit btn btn-primary btn-lg"> Check </button>  </a>
+
 
 
 </form>
 
-  </div>
 
 {% endblock %}

@@ -1,10 +1,17 @@
 from django.shortcuts import render
-from .forms import GuessPokemon,PokeSearch
+from .forms import GuessPokemon,PokeSearch, PokeSearchByName
 from .models import Region, AboutUs
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
+
+from django import template
+register = template.Library()
+
+@register.filter
+def index(indexable, i):
+    return indexable[i]
 
 
 # Create your views here.
@@ -86,26 +93,44 @@ def studs(request):
     context = {'studs': studs}
     return render(request, 'pokedex/about.html', context)
 
-
+#search by pokemon number.
 def search(request):
-    names = ['no one', 'Bulbasaur', 'Ivysaur', 'Venusaur',
-             'Charmander', 'Charmeleon', 'Charizard',
-             'Squirtle', 'Wartortle', 'Blastoise',
-             'Caterpie', 'Metapod', 'Butterfree']
     context = {}
+    names = ['no one', 'Bulbasaur', 'Ivysaur', 'Venusaur',
+                     'Charmander', 'Charmeleon', 'Charizard',
+                     'Squirtle', 'Wartortle', 'Blastoise',
+                     'Caterpie', 'Metapod', 'Butterfree']
 
     if request.method == 'POST':
-        form = PokeSearch(request.POST)
-        if form.is_valid():
-            number = form.cleaned_data['number']
+        form_2 = PokeSearchByName(request.POST)
+        if form_2.is_valid():
 
-            context = {
-                'form': form,
-                'names': names,
-                'number' : number
-            }
-    return render(request, 'pokedex/search.html', context)
+            pokemon_name = form_2.cleaned_data['pokemon_name']
+
+            dex_no = names.index(pokemon_name)
 
 
+            dict = {
+                    'pokemon': pokemon_name,
+
+                       'names' : names}
+
+             #number is a form input. names is the list.
 
 
+            context = { 'dict' : dict,
+
+                        'dex_number' : dex_no}
+
+
+            return render(request, 'pokedex/search.html', context)
+
+    else:
+        form = PokeSearch()
+        form_2 = PokeSearchByName()
+
+    return render(request, 'pokedex/search.html', {
+                                                   'form2' : form_2,
+                                                   'names':names})
+
+#search by pokemon name.
