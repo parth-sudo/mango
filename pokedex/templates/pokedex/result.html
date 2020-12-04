@@ -4,7 +4,17 @@
 
 <div class="border-top pt-3">
     <h2 class="text-white bg-black-50"> The Pokemon with those stats is <strong>{{ result }} </strong> </h2>
-     </div>
 
+</div>
+<br>
+ <hr>
+
+ <div style="width: 50%; height: 50%">
+
+     <h4 class="text-white bg-black-50">Here is some more information about <strong>{{ result }} </strong> </h4>
+     <iframe src="https://bulbapedia.bulbagarden.net/wiki/{{result|safe}}_(Pok%C3%A9mon)" width="900" height="500"> Pokemon name </iframe>
+
+
+ </div>
 
 {% endblock %}

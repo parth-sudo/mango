@@ -62,7 +62,12 @@ def result(base_HP, attack, defense, special_attack, special_defense,
 
     answer = str((iowa_model.predict(pre)))[1:-1]
 
-    return answer
+    pokemonName = answer[1:-1]
+    pokemonName
+
+    print(pokemonName)
+
+    return pokemonName
 
 
 def Guesser(request):

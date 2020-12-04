@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b653c5f2-d870-4029-a99d-6d0316c3d0c7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pokedex/templatetags/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pokedex/templatetags/index.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pokedex/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/pokedex/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pokedex/templates/pokedex/forms.html" beforeDir="false" afterPath="$PROJECT_DIR$/pokedex/templates/pokedex/forms.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pokedex/templates/pokedex/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/pokedex/templates/pokedex/search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pokedex/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/pokedex/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pokedex/static/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/pokedex/static/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pokedex/templates/pokedex/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/pokedex/templates/pokedex/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pokedex/templates/pokedex/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/pokedex/templates/pokedex/result.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pokedex/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pokedex/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
