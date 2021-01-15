@@ -5,6 +5,7 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
+from .pokemon import dict
 
 from django import template
 register = template.Library()
@@ -12,7 +13,6 @@ register = template.Library()
 @register.filter
 def index(indexable, i):
     return indexable[i]
-
 
 # Create your views here.
 
@@ -28,7 +28,8 @@ def regions(request):
 def result(base_HP, attack, defense, special_attack, special_defense,
                    speed, generation, legendary):
 
-    # ML Model begins.-----------------------------------------------
+    # ML Model begins.----------------------------------------------
+    # F:\dex
     df = pd.read_csv("C:/Users/Yadnesh/Downloads/pokemre.csv")
 
     df.head()
@@ -98,44 +99,37 @@ def studs(request):
     context = {'studs': studs}
     return render(request, 'pokedex/about.html', context)
 
-#search by pokemon number.
+#show pokemon stats by entering pokemon name.
 def search(request):
     context = {}
-    names = ['no one', 'Bulbasaur', 'Ivysaur', 'Venusaur',
-                     'Charmander', 'Charmeleon', 'Charizard',
-                     'Squirtle', 'Wartortle', 'Blastoise',
-                     'Caterpie', 'Metapod', 'Butterfree']
-
     if request.method == 'POST':
-        form_2 = PokeSearchByName(request.POST)
+        form_2 = PokeSearchByName(request.POST or None)
         if form_2.is_valid():
 
             pokemon_name = form_2.cleaned_data['pokemon_name']
+            print(pokemon_name)
+            hp = dict[pokemon_name][0]
+            attack = dict[pokemon_name][1]
+            defense = dict[pokemon_name][2]
+            special_attack = dict[pokemon_name][3]
+            special_defense = dict[pokemon_name][4]
+            speed = dict[pokemon_name][5]
 
-            dex_no = names.index(pokemon_name)
-
-
-            dict = {
-                    'pokemon': pokemon_name,
-
-                       'names' : names}
-
-             #number is a form input. names is the list.
-
-
-            context = { 'dict' : dict,
-
-                        'dex_number' : dex_no}
-
+            context = {'poke' : pokemon_name,
+                       'hp' : hp,
+                       'attack' : attack,
+                       'defense' : defense,
+                       'specialA' : special_attack,
+                       'specialD' : special_defense,
+                       'speed' : speed}
 
             return render(request, 'pokedex/search.html', context)
 
     else:
-        form = PokeSearch()
-        form_2 = PokeSearchByName()
 
-    return render(request, 'pokedex/search.html', {
-                                                   'form2' : form_2,
-                                                   'names':names})
+        form_2 = PokeSearchByName()
+        context = { 'form2' : form_2}
+
+    return render(request, 'pokedex/search.html', context)
 
 #search by pokemon name.

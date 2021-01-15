@@ -33,18 +33,6 @@ class GuessPokemon(forms.Form):
 class PokeSearch(forms.Form):
     number = forms.IntegerField()
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-
-        self.helper = FormHelper  # some crispy tags.
-        self.helper.form_method = 'post'
-
-        self.helper.layout = Layout(
-            'number',
-
-            Submit('submit', 'Submit', css_class='btn-success'),
-        )
-
 class PokeSearchByName(forms.Form):
 
     pokemon_name = forms.CharField(max_length=20)

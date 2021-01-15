@@ -4,7 +4,7 @@
 
 
 
-<h1 class="text-white"> Search by name. </h1>
+<h1 class="text-white"> Pokemon Stat Display. </h1>
 
  <h2 class="text-white"> Enter the name of the Pokemon. </h2>
 
@@ -27,17 +27,25 @@
 
      <div class="contaier">
     <h3 class="text-white"> {{form2}} </h3>
-             </div>
+     </div>
 
 
      <div class="contaier">
-    <h3 class="text-white">   {{dex_number}} </h3>
-             </div>
+    <h3 class="text-white"> The stats of {{poke}} are: </h3>
+         <hr>
+         <h4 class="text-white"> <strong>HP:</strong> {{ hp }} </h4>
+         <h4 class="text-white"> <strong>Attack:</strong>  {{ attack }} </h4>
+         <h4 class="text-white"><strong>Defense:</strong>  {{ defense }} </h4>
+         <h4 class="text-white"> <strong>Special Attack:</strong> {{ specialA }} </h4>
+         <h4 class="text-white"> <strong>Special Defense: </strong>{{ specialD }} </h4>
+         <h4 class="text-white"><strong>Speed:</strong>  {{ speed }} </h4>
+
+     </div>
 
     <br>
 
 
-    <a href="{% url 'search' %}"><button class="submit btn btn-primary btn-lg"> Check </button>  </a>
+    <a href="{% url 'search' %}"><button onclick="" class="submit btn btn-primary btn-lg"> Check </button>  </a>
 
 
 
